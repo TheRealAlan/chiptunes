@@ -1,0 +1,44 @@
+#TITLE My First Chiptune
+#COMPOSER Your Name
+#PROGRAMER Your Name
+
+/**
+ * MMLX Variables
+ */
+// #X-TRANSPOSE -2
+
+/**
+ * Instruments
+ */
+square-wave-piano:
+    adsr: 0 10 10 10
+    timbre: 2
+
+guitar:
+    max_volume: 12
+    adsr: 0 10 7 30
+    timbre: 0
+
+bass:
+    vibrato: 2 4 4
+    dsr: 0 10 7 30
+
+drum:
+    volume: 10 8 6 4 2 0
+    q: 4
+
+ABCD t120
+
+// pulse wave channel
+// A o4 @square-wave-piano c d e f g a b > d c1
+A o4 @square-wave-piano c16 d16 e16 c16 d16 e16 c16 e16 d16 e16 f16 d16 e16 f16 d16 f16 [c16 > c16 <]8
+
+// pulse wave channel
+// B o3 @guitar e f g a b > c d f e1
+B o4 @guitar c16 d16 e16 c16 d16 e16 c16 e16 d16 e16 f16 d16 e16 f16 d16 f16 [c16 > c16 <]8
+
+// triangle wave channel
+C o4 @bass c16 d16 e16 c16 d16 e16 c16 e16 d16 e16 f16 d16 e16 f16 d16 f16 [c16 > c16 <]8
+
+// noise channel
+D @drum [a16 a16 g16 a16]8
